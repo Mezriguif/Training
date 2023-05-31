@@ -1,0 +1,9 @@
+{
+	"name": "itlandDataFactory",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1b613c48-601f-4503-8c3c-8d234e91b1e5",
+		"tenantId": "73c88bf2-41a2-4433-9fa9-f4bcdfae4174"
+	}
+}
