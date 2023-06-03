@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText6",
+						"referenceName": "DelimitedText7",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -40,7 +40,13 @@
 				"          title = toString(left(title, length(title)-6))) ~> extractyear",
 				"extractyear sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     partitionFileNames:['cleanfile1.csv'],",
+				"     input(",
+				"          Column_1 as string,",
+				"          Column_2 as string,",
+				"          Column_3 as string,",
+				"          Column_4 as string",
+				"     ),",
+				"     partitionFileNames:['cleanfile2'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('hash', 1)) ~> sink1"
