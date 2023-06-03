@@ -22,7 +22,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "AzureSqlTable2",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
@@ -62,12 +62,8 @@
 				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
-				"          Make as string,",
-				"          Model as string,",
-				"          Type as string,",
-				"          Origin as string,",
-				"          DriveTrain as string,",
-				"          Length as decimal(18,0)",
+				"          Movies_count as integer,",
+				"          Year as integer",
 				"     ),",
 				"     deletable:false,",
 				"     insertable:true,",
@@ -76,7 +72,11 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Year,",
+				"          Movies_count = count",
+				"     )) ~> sink2"
 			]
 		}
 	}
