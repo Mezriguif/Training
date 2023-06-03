@@ -12,7 +12,15 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText6",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "extractyear"
@@ -29,7 +37,11 @@
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 derive(Year = toInteger(trim(right(title, 6), '()'))\r",
 				",",
-				"          title1 = toInteger(left(title, length(title)-6), '()')) ~> extractyear"
+				"          title = toString(left(title, length(title)-6))) ~> extractyear",
+				"extractyear sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
