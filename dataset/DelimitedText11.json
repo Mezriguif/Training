@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText2",
+	"name": "DelimitedText11",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -20,27 +20,15 @@
 		},
 		"schema": [
 			{
-				"name": "Make",
+				"name": "movieId",
 				"type": "String"
 			},
 			{
-				"name": "Model",
+				"name": "title",
 				"type": "String"
 			},
 			{
-				"name": "Type",
-				"type": "String"
-			},
-			{
-				"name": "Origin",
-				"type": "String"
-			},
-			{
-				"name": "DriveTrain",
-				"type": "String"
-			},
-			{
-				"name": "Length",
+				"name": "genres",
 				"type": "String"
 			}
 		]

@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText2",
+	"name": "DelimitedText8",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -15,32 +15,16 @@
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
-				"name": "Make",
 				"type": "String"
 			},
 			{
-				"name": "Model",
 				"type": "String"
 			},
 			{
-				"name": "Type",
-				"type": "String"
-			},
-			{
-				"name": "Origin",
-				"type": "String"
-			},
-			{
-				"name": "DriveTrain",
-				"type": "String"
-			},
-			{
-				"name": "Length",
 				"type": "String"
 			}
 		]

@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText2",
+	"name": "DelimitedText10",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "movies.csv",
-				"container": "input"
+				"container": "output"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -20,27 +19,19 @@
 		},
 		"schema": [
 			{
-				"name": "Make",
+				"name": "movieId",
 				"type": "String"
 			},
 			{
-				"name": "Model",
+				"name": "title",
 				"type": "String"
 			},
 			{
-				"name": "Type",
+				"name": "genres",
 				"type": "String"
 			},
 			{
-				"name": "Origin",
-				"type": "String"
-			},
-			{
-				"name": "DriveTrain",
-				"type": "String"
-			},
-			{
-				"name": "Length",
+				"name": "Year",
 				"type": "String"
 			}
 		]
