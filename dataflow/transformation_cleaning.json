@@ -12,16 +12,12 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [
+			"sinks": [],
+			"transformations": [
 				{
-					"dataset": {
-						"referenceName": "DelimitedText5",
-						"type": "DatasetReference"
-					},
-					"name": "sink1"
+					"name": "extractyear"
 				}
 			],
-			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          movieId as string,",
@@ -31,11 +27,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sink1"
+				"source1 derive(Year = toInteger(trim(right(title, 6), '()'))\r",
+				") ~> extractyear"
 			]
 		}
 	}
