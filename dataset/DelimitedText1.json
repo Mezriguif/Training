@@ -10,9 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "cars.csv",
-				"folderPath": "mesdocs",
-				"container": "source"
+				"fileName": "carsTest.csv",
+				"container": "containertest"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
