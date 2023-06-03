@@ -28,7 +28,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
 				"source1 derive(Year = toInteger(trim(right(title, 6), '()'))\r",
-				") ~> extractyear"
+				",",
+				"          title = ERROR_FUNCTION('toInteger(left(title, length(title)-6), __SINGLE_QUOTE__()__SINGLE_QUOTE__))')) ~> extractyear"
 			]
 		}
 	}
