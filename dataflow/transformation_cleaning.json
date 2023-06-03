@@ -77,8 +77,8 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          Movies_count = {Movies count},",
-				"          Year",
+				"          Year,",
+				"          Movies_count = {Movies count}",
 				"     )) ~> sink2"
 			]
 		}
