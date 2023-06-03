@@ -49,7 +49,7 @@
 				",",
 				"          title = toString(left(title, length(title)-6))) ~> extractyear",
 				"extractyear aggregate(groupBy(Year),",
-				"     {Movies count} = ERROR_FUNCTION('count(*)')) ~> MovieByYear",
+				"     {Movies count} = count(Year)) ~> MovieByYear",
 				"extractyear sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -75,7 +75,11 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Movies_count = {Movies count},",
+				"          Year",
+				"     )) ~> sink2"
 			]
 		}
 	}
