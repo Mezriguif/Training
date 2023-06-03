@@ -19,6 +19,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -54,7 +61,21 @@
 				"     partitionFileNames:['cleanfile2.csv'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1)) ~> sink1"
+				"     partitionBy('hash', 1)) ~> sink1",
+				"MovieByYear sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Movies_count as integer,",
+				"          Year as integer",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
 			]
 		}
 	}
